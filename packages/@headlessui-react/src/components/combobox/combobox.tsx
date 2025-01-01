@@ -819,7 +819,7 @@ function ComboboxFn<TValue, TTag extends ElementType = typeof DEFAULT_COMBOBOX_T
           ? null
           : data.virtual
             ? data.virtual.options[data.activeOptionIndex ?? 0]
-            : (data.options[data.activeOptionIndex]?.dataRef.current.value as TValue) ?? null,
+            : ((data.options[data.activeOptionIndex]?.dataRef.current.value as TValue) ?? null),
       value,
     } satisfies ComboboxRenderPropArg<unknown>
   }, [data, disabled, value])
@@ -1025,6 +1025,7 @@ export type ComboboxInputProps<
     displayValue?(item: TType): string
     onChange?(event: React.ChangeEvent<HTMLInputElement>): void
     autoFocus?: boolean
+    autoComplete?: string
   }
 >
 
